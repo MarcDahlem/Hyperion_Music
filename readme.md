@@ -4,6 +4,9 @@
 
 A client for the ambilight clone [hyperion](https://github.com/tvdzwan/hyperion) that is able to analyze audio and control the leds by that.
 
+Example:
+[![HyperionMusic](https://lh6.googleusercontent.com/-PCb2CA14G2w/U-ORssY0bUI/AAAAAAAAAEY/oPCgay--wx8/w320-h240-p-o/hyperion_music.mp4)](https://plus.google.com/104219403391076528339/posts/gQmCV3dHxNS)
+
 ## What it uses;
 The client is a [proto client](https://github.com/tvdzwan/hyperion/wiki/Java-proto-client-example), that sends small control messages to hyperion over the network.
 
