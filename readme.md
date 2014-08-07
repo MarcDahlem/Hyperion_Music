@@ -67,32 +67,38 @@ Then, install the protobuf-dt eclipse plugin with the following update site:
  
  Now, after restarting eclipse, set up the protobuf properties:
  Rightclick on the project, select 'Properties' --> 'Protocol Buffer'
- Then check 'Enable project specific setting'
- Under 'Compiler' check 'Compile .proto files on save' and Options --> 'Generate java'
+ 
+ - Then check 'Enable project specific setting'
+ - Under 'Compiler' check 'Compile .proto files on save' and Options --> 'Generate java'
  
  Afterwards, link or copy the file ['message.proto'](https://github.com/tvdzwan/hyperion/blob/master/libsrc/protoserver/message.proto) into your project folder. Open it once, change some whitespaces and save. This will call the proto compiler 'protoc'.
  
- In order to use this generated java files, one must inlcude them to the project.
- Do this by Project-Properties --> Java Build Path --> Sources --> Add folder --> Add the src-gen folder
+ In order to use the generated java files, one must inlcude them to the project.
+ Do this by adding the src-gen folder: Project-Properties --> Java Build Path --> Sources --> Add folder --> Add the src-gen folder
  
  Last but not least, one needs to include all libararies that are used by this project as well:
  Rightclick on project --> Properties --> Java build path --> Libraries --> Add Jar /Add external jar
  The following jar files must be included:
  
- gstreamer-java.jar (Tested is [version 1.6](https://code.google.com/p/gstreamer-java/downloads/list))
- jna.jar (Tested is [version 4.1.0](https://github.com/twall/jna))
- jna.platform-jar (Tested is [version 4.1.0](https://github.com/twall/jna))
- protobuf.jar (can be found after installing `libprotobuf-java` under /usr/share/java/)
+ - gstreamer-java.jar (Tested is [version 1.6](https://code.google.com/p/gstreamer-java/downloads/list))
+
+ - jna.jar (Tested is [version 4.1.0](https://github.com/twall/jna))
  
- Afterwards, the project should be able to run.
+-  jna.platform-jar (Tested is [version 4.1.0](https://github.com/twall/jna))
+ 
+ - protobuf.jar (can be found after installing `libprotobuf-java` under /usr/share/java/)
+ 
+ - Afterwards, the project should be able to run.
  
  ## How to run the client
+ 
  Run it from command line or eclipse
  
  It can be controlled with 's + ENTER' for starting the analysis, or 'q + ENTER' to quit.
  
  
  ## Limitations
- Only Linux supported so far
- Sometimes, the 'q' doesn't really close the program. This is a bug of gstreamer-java, when stopping the pipeline
- Sometimes, after a failed 'q', starting is not working, or better, gives no audio results. Try it multiple times or restart eclipse if that happens.
+ 
+ - Only Linux supported so far
+ - Sometimes, the 'q' doesn't really close the program. This is a bug of gstreamer-java, when stopping the pipeline
+ - Sometimes, after a failed 'q', starting is not working, or better, gives no audio results. Try it multiple times or restart eclipse if that happens. You can also enable 'debug' and take al llok at the debug messages.
