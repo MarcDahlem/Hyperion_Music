@@ -36,7 +36,20 @@ public class Main {
 		        			}else  {
 		        				runningMR=true;
 		        				try {
-		        					musicReader = new MusicReader(128,44100,2, "alsa_output.pci-0000_00_1b.0.iec958-stereo.monitor",100,-50, 0, 80000000, true, false); //250000000 = 0,25s //10000000 = 0,01seconds //80000000 = 0,08seconds
+		        					int spec_bands = 64;
+		        					int audio_frequency=44100;
+		        					int num_channels = 1;
+		        					String device = "alsa_output.pci-0000_00_1b.0.iec958-stereo.monitor";
+		        					boolean pulse = true;
+		        					int priority = 100;
+		        					int threshold = -50;
+		        					int maxdb = -15;
+		        					int interval = 90000000;  //250000000 = 0,25s //10000000 = 0,01seconds //80000000 = 0,08seconds // default :100000000 = 0,1 s 
+		        					String hyperion_ip = "marc-pi";
+		        					int hyperion_port = 19445;
+		        					boolean debug = false;
+		        					
+		        					musicReader = new MusicReader(spec_bands,audio_frequency,num_channels, device,priority,threshold, maxdb, interval, hyperion_ip, hyperion_port, pulse, debug);
 									//musicReader = new MusicReader(128,8000,1, "plughw:0,0",100, true, true);
 								} catch (UnknownHostException e) {
 									// TODO Auto-generated catch block

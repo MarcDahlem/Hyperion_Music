@@ -8,11 +8,7 @@ import org.gstreamer.Caps;
 import org.gstreamer.Element;
 import org.gstreamer.ElementFactory;
 import org.gstreamer.GstObject;
-import org.gstreamer.Message;
 import org.gstreamer.Pipeline;
-import org.gstreamer.State;
-import org.gstreamer.Structure;
-import org.gstreamer.ValueList;
 
 import com.example.dahlem.Hyperionmusic.Spectrum.SpectrumBusReceiver;
 
@@ -30,8 +26,10 @@ public class MusicReader {
 	private int threshold;
 	private int maxdb;
 	private int interval;
+	private String hyperion_ip;
+	private int hyperion_port;
 
-	public MusicReader(int spect_bands, int audio_frequency, int num_channels, String device, int priority, int threshold, int maxdb, int interval, boolean pulse, boolean debug) throws UnknownHostException, IOException {
+	public MusicReader(int spect_bands, int audio_frequency, int num_channels, String device, int priority, int threshold, int maxdb, int interval, String hyperion_ip, int hyperion_port, boolean pulse, boolean debug) throws UnknownHostException, IOException {
 		this.spect_bands = spect_bands;
 		this.audio_frequency = audio_frequency;
 		this.num_channels = num_channels;
@@ -42,6 +40,8 @@ public class MusicReader {
 		this.pulse=pulse;
 		this.threshold=threshold;
 		this.interval = interval;
+		this.hyperion_ip = hyperion_ip;
+		this.hyperion_port = hyperion_port;
 		this.init();
 	}
 
@@ -106,7 +106,7 @@ public class MusicReader {
 		});
 
 		SpectrumBusReceiver sBusreceiver = new SpectrumBusReceiver(audio_frequency,spect_bands,num_channels,debug);
-		this.hyperion = new HyperionConnection("marc-pi",19445, this.priority, this.threshold, this.maxdb, this.debug);
+		this.hyperion = new HyperionConnection(this.hyperion_ip,this.hyperion_port, this.priority, this.threshold, this.maxdb, this.debug);
 		sBusreceiver.register(hyperion);
 		bus.connect(sBusreceiver);
 
