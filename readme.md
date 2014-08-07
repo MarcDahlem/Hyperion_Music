@@ -86,7 +86,7 @@ Then, install the protobuf-dt eclipse plugin with the following update site:
  
 -  jna.platform-jar (Tested is [version 4.1.0](https://github.com/twall/jna))
  
- - protobuf.jar (can be found after installing `libprotobuf-java` under /usr/share/java/)
+ - protobuf.jar (can be found after installing `libprotobuf-java` under /usr/share/java/ )
  
  - Afterwards, the project should be able to run.
  
