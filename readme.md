@@ -23,20 +23,20 @@ So far, the client can only be configured directly in the [source code](https://
 Change the following fields in order to run it:
    - spec_bands: Amount of frequency bands that should be analyzed
    - audio_frequency: self explaining. 
-   - num_channels: 1 or 2, depending if you wnat to analyze stero or mono
-   - device: The device that should be used to capture audio. For details on how to find the audio source, take a look at the following sections
-   - pulse: Flag indicating, if the given device is a device of pulse or alsa. Used to switch internally the audiosrc to alsasrc or pulsesrc accodringly
+   - num_channels: 1 or 2, depending if you want to analyze stereo or mono
+   - device: The device that should be used to capture audio. For details on how to find the audio source, take a look at the following subsection
+   - pulse: Flag indicating, if the given device is a device of pulse or alsa. Used to switch internally the audiosrc to alsasrc or pulsesrc accordingly
    - priority: Priority with which hyperion should be controlled
    - threshold = the minimal threshold for the frequencies in dB. Everything under this threshold is set to the threshold itself
    - maxdb: not used at the moment.
-   - interval: interval which is used to analyse audio in nano seconds.
+   - interval: the interval which is used to analyse the audio stream in nano seconds.
    - hyperion_ip: ip or network name of the raspberry that runs hyperion.
    - hyperion_port: the port of the protoserver of hyperion
-   - debug: if enabled, some debug messages are printed out when running
+   - debug: if enabled, some debug messages are printed when running
    -
 Furthermore, one can change the boundaries that are used to devide bass, middle and high frequencies in [this file](https://github.com/MarcDahlem/Hyperion_Music/blob/master/src/com/example/dahlem/Hyperionmusic/HyperionConnection.java#L101)
 
-At this file, the calculation takes place of the image that is then be sent to hyperion.
+At this file, the calculation also takes place of the image that is then be sent to hyperion.
 
 ### How to find the right device:
 Basically, every alsa and pulse audio source can be used.
@@ -51,6 +51,7 @@ In order to get the name and pulse src running one needs to
 >>> set-source-mute <monitor_name> false
 >>> exit`
 3. Use this monitor as device name in the music client
+(For details check [stackoverflow](http://stackoverflow.com/questions/7502380/streaming-pulseaudio-to-file-possibly-with-gstreamer))
 
 ## How to setup the project
 
