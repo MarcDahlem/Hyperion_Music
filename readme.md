@@ -80,11 +80,11 @@ Then, install the protobuf-dt eclipse plugin with the following update site:
  Rightclick on project --> Properties --> Java build path --> Libraries --> Add Jar /Add external jar
  The following jar files must be included:
  
- - gstreamer-java.jar (Tested is [version 1.6](https://code.google.com/p/gstreamer-java/downloads/list))
+ - gstreamer-java.jar (Tested is [version 1.6](https://code.google.com/p/gstreamer-java/downloads/list) )
 
- - jna.jar (Tested is [version 4.1.0](https://github.com/twall/jna))
+ - jna.jar (Tested is [version 4.1.0](https://github.com/twall/jna) )
  
--  jna.platform-jar (Tested is [version 4.1.0](https://github.com/twall/jna))
+ -  jna.platform-jar (Tested is [version 4.1.0](https://github.com/twall/jna) )
  
  - protobuf.jar (can be found after installing `libprotobuf-java` under /usr/share/java/ )
  
